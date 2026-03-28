@@ -1,8 +1,18 @@
+import {selectCompletedTasks } from "../../application/task/useTaskSelectors"
+import useTaskActions from "../../application/task/useTaskActions"
+import TaskList from "../components/task/TaskList"
 
 function CompletedPage() {
+
+  const { tasks, onComplete, onDelete } = useTaskActions();
+  const completedTasks = selectCompletedTasks(tasks);
+
   return (
     <>
-      <h1>Hola mundo, esta es la pagina CompletedPage</h1>
+      <>
+          <h3>Tareas completadas</h3>
+          <TaskList tasks={completedTasks} onComplete={onComplete} onDelete={onDelete} />
+        </>
     </>
   )
 }

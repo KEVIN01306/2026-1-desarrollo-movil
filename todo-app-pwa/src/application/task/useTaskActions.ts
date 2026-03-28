@@ -8,7 +8,6 @@ export default function useTaskActions() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   const addTask = (title: string) => {
-    
     if (!validateTaskTitle(title))
       return;
 
